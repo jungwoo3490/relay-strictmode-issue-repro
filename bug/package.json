@@ -1,0 +1,25 @@
+{
+  "name": "relay-strictmode-repro-bug",
+  "version": "1.0.0",
+  "scripts": {
+    "relay": "relay-compiler",
+    "dev": "relay-compiler && vite",
+    "build": "relay-compiler && vite build"
+  },
+  "type": "module",
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-relay": "^21.0.1",
+    "relay-runtime": "^21.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.13",
+    "@rolldown/plugin-babel": "^0.3.1",
+    "@vitejs/plugin-react": "^6.3.0",
+    "babel-plugin-relay": "^21.0.1",
+    "relay-compiler": "^21.0.1",
+    "vite": "^8.3.8"
+  },
+  "private": true
+}

@@ -1,0 +1,12 @@
+type Query {
+  node(id: ID!): Node
+}
+
+interface Node {
+  id: ID!
+}
+
+type Item implements Node {
+  id: ID!
+  name: String!
+}

@@ -1,0 +1,17 @@
+diff --git a/node_modules/react-relay/lib/relay-hooks/useLazyLoadQueryNode.js b/node_modules/react-relay/lib/relay-hooks/useLazyLoadQueryNode.js
+index 9ae5d29..8d345f6 100644
+--- a/node_modules/react-relay/lib/relay-hooks/useLazyLoadQueryNode.js
++++ b/node_modules/react-relay/lib/relay-hooks/useLazyLoadQueryNode.js
+@@ -55,6 +55,12 @@ function useLazyLoadQueryNode(params) {
+   useEffect(function () {
+     if (maybeHiddenOrFastRefresh.current === true) {
+       maybeHiddenOrFastRefresh.current = false;
++      if (preparedQueryResult != null && environment.check(preparedQueryResult.operation).status === "available") {
++        var disposable = QueryResource.retain(preparedQueryResult, profilerContext);
++        return function () {
++          disposable.dispose();
++        };
++      }
+       forceUpdate(function (n) {
+         return n + 1;
+       });
